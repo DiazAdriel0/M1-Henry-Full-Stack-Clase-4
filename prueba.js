@@ -67,3 +67,30 @@ function nFibonacci(n) { // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34] T: indexOf(n) o in
         }
     }
   }
+
+
+
+
+
+
+
+
+
+  function nFibonacci(n) {
+    if (n === 0) {
+      return 0;
+    }
+    if (n === 1) {
+      return 1;
+    }
+  
+    return nFibonacci(n - 1) + nFibonacci(n - 2);
+  }
+                  
+/* nFibonacci(5) =  nFibonacci(4) + nFibonacci(3)
+      5                 3       +       2
+
+nFibonacci(4) =  nFibonacci(3) + nFibonacci(2)
+      3                  2      +        1
+nFibonacci(3) =  nFibonacci(2) + nFibonacci(1)          
+       2            1 + 0       +      1 */

@@ -15,13 +15,30 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) { // n! = n * n-1 * ... * 1
-  if(n > 0){
-    return n * nFactorial(n - 1); // n * funcion ... 1 * funcion(0)
-  }else{
+  if(n === 0 || n === 1){
     return 1;
+  }else if(n < 0){
+    return console.log("Error, no se puede hacer el factorial de un número negativo")
   }
+
+  return n * nFactorial(n - 1); // n * funcion ... 1 * funcion(0)
 }
 
+//OPCION ITERATIVA
+/*
+function nFactorial(n) {
+  let factorial = n
+  if(n === 1 || n === 0){
+    return 1;
+  }
+  while(n > 1){
+    n--
+    factorial = factorial * n
+  }
+  return factorial;
+*/
+
+//LOGICA DETRAS
 /* nFactorial(5)
 nFactorial(5) = 5 * nFactorial(4) = 120
 nFactorial(4) = 4 * nFactorial(3) = 24
@@ -30,23 +47,38 @@ nFactorial(2) = 2 * nFactorial(1) = 2
 nFactorial(1) = 1                 = 1 */
 
   function nFibonacci(n) {
-    if (n === 0) {
-      return 0;
-    }
-    if (n === 1) {
-      return 1;
+    if (n === 0 || n === 1) {
+      return n;
     }
   
     return nFibonacci(n - 1) + nFibonacci(n - 2);
   }
 
+//OPCION ITERATIVA
+/*
+function nFibonacci(n, fibo = [0,1]) {
+  if(fibo.length > n){
+    return fibo[n];
+  }
+  fibo.push(fibo[fibo.length - 1] + fibo[fibo.length - 2])
+  return nFibonacci(n,fibo);
+}
+*/
+
+//LOGICA DETRAS
 /* nFibonacci(5) =  nFibonacci(4) + nFibonacci(3)
       5                 3       +       2
 
 nFibonacci(4) =  nFibonacci(3) + nFibonacci(2)
       3                  2      +        1
+      
 nFibonacci(3) =  nFibonacci(2) + nFibonacci(1)          
-       2            1 + 0       +      1 */
+       2               1       +      1
+
+nFibonacci(2) =  nFibonacci(1) + nFibonacci(0)          
+      1                1       +      0       */
+
+
 
 
 /*
@@ -73,6 +105,22 @@ Queue.prototype.dequeue = function(){
 Queue.prototype.size = function(){
   return this.arr.length
 }
+
+//CON CLASS
+/* class Queue{
+  constructor(){
+    this.queue = [];
+  }
+  enqueue(valor){
+    this.queue.push(valor)
+  }
+  dequeue(){
+    return this.queue.shift()
+  }
+  size(){
+    return this.queue.length
+  }
+} */
 
 
 /*⚠️ No modificar nada debajo de esta línea ⚠️*/
